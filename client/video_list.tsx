@@ -7,13 +7,13 @@ type EPGRecordedItem = EPGStationAPI.components["schemas"]["RecordedItem"];
 type MirakChannel = MirakAPI.definitions["Channel"];
 type MirakService = MirakAPI.definitions["Service"];
 async function fetchRecorded(): Promise<EPGRecords> {
-    const res = await fetch("/api/recorded?isHalfWidth=true&offset=0&limit=1000&hasOriginalFile=true");
+    const res = await fetch("./api/recorded?isHalfWidth=true&offset=0&limit=1000&hasOriginalFile=true");
     const recordedJson = await res.json();
     return recordedJson as EPGRecords;
 }
 
 async function fetchChannels(): Promise<MirakChannel[]> {
-    const res = await fetch("/api/channels");
+    const res = await fetch("./api/channels");
     const channelsJson = await res.json();
     return channelsJson as MirakChannel[];
 };
